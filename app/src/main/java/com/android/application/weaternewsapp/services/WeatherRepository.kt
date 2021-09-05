@@ -10,11 +10,14 @@ import com.android.application.weaternewsapp.services.dto.WeatherResponse
 import com.google.android.gms.location.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
+import javax.inject.Inject
 
 
-class WeatherRepository {
+class WeatherRepository @Inject constructor(
+    private val service: OpenWeatherService
+){
 //    private val currentLocation = MutableStateFlow<Location?>(null)
-    private val service = OpenWeatherService()
+//    private val service = OpenWeatherService()
 //    private val weather = MutableStateFlow<WeatherResponse?>(null)
 //    fun getWeather(): Flow<WeatherResponse?> = weather
 

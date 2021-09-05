@@ -21,11 +21,12 @@ interface OpenWeatherService {
     ) : Response<WeatherResponse>
 }
 
-fun OpenWeatherService(): OpenWeatherService = Retrofit.Builder()
-        .baseUrl("https://api.openweathermap.org/data/2.5/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create()
+// here use the dagger hilt service injection
+//fun OpenWeatherService(): OpenWeatherService = Retrofit.Builder()
+//        .baseUrl("https://api.openweathermap.org/data/2.5/")
+//        .addConverterFactory(GsonConverterFactory.create())
+//        .build()
+//        .create()
 
 //fun OpenWeatherService(): OpenWeatherService {
 //    return Retrofit.Builder()

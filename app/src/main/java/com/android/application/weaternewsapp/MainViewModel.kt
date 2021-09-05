@@ -11,18 +11,24 @@ import com.android.application.weaternewsapp.services.OpenWeatherService
 import com.android.application.weaternewsapp.services.WeatherRepository
 import com.android.application.weaternewsapp.services.dto.WeatherResponse
 import com.google.android.gms.location.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import okhttp3.ResponseBody
+import javax.inject.Inject
 
 @SuppressLint("MissingPermission")
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    application: Application,
+    repository: WeatherRepository
+) : AndroidViewModel(application) {
     //    private var lastLocation: Location? = null
-    private var repo = WeatherRepository()
+    // private var repo = WeatherRepository()
 
-    val weather: Flow<WeatherResponse?> = repo.currentLocationWeather(getApplication() as Context)
+    val weather: Flow<WeatherResponse?> = repository.currentLocationWeather(getApplication())
 }
 //    fun onPermissionGranted(): Flow<WeatherResponse?> {
 //        return repo.currentLocationWeather(getApplication() as Context)
