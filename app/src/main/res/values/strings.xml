@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WeaterNewsApp</string>
+    <string name="temperature_degree">%d\u00b0</string>
+    <string name="min_temperature">Min</string>
+    <string name="current_temperature">Current</string>
+    <string name="max_temperature">Max</string>
 </resources>
